@@ -1,2 +1,2 @@
-# SpaceWalk
-SpaceWalk is a Android client app for SpaceX API.
+# SpaceXWalk
+SpaceXWalk is a Android client app for SpaceX API.
