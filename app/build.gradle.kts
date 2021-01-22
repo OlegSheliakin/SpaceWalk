@@ -12,6 +12,7 @@ android {
     compileSdkVersion(AndroidConfig.COMPILE_SDK_VERSION)
 
     defaultConfig {
+        applicationId = AndroidConfig.ID
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
 
@@ -21,12 +22,14 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments(mapOf(
+                arguments(
+                    mapOf(
                         "dagger.gradle.incremental" to "true",
                         "room.schemaLocation" to "$projectDir/schemas",
                         "room.incremental" to "true",
                         "room.expandProjection" to "true"
-                ))
+                    )
+                )
             }
         }
     }
@@ -35,8 +38,8 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -68,7 +71,7 @@ dependencies {
     implementation(Libs.RX_KOTLIN)
     implementation(Libs.RX_ANDROID)
 
-    //retrofit
+    //retrofitx
     implementation(Libs.RETROFIT)
     implementation(Libs.RETROFIT_MOSHI_CONVERTER)
     implementation(Libs.RETROFIT_RX_ADAPTER)
