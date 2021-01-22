@@ -1,7 +1,7 @@
 plugins {
-    id(Plugins.ANDROID_APPLICATION)
-    kotlin(Plugins.KOTLIN_ANDROID)
-    kotlin(Plugins.KAPT)
+    id(Plugins.Id.ANDROID_APPLICATION)
+    kotlin(Plugins.Id.KOTLIN_ANDROID)
+    kotlin(Plugins.Id.KAPT)
 }
 
 repositories {

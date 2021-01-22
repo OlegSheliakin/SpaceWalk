@@ -21,5 +21,4 @@ interface LaunchesService {
         @Query("sort") sort: String = "original_launch",
         @Query("order") order: String = "desc"
     ): Single<List<Launch>>
-
 }
