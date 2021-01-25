@@ -8,6 +8,9 @@ import retrofit2.Retrofit
 import retrofit2.create
 import javax.inject.Singleton
 
+/**
+ * Created by Oleg Sheliakin on 22.01.2021.
+ */
 @Module
 object ServiceModule {
 

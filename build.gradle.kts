@@ -32,10 +32,6 @@ subprojects {
             // Target version of the generated JVM bytecode. It is used for type resolution.
             this.jvmTarget = "1.8"
         }
-        withType<Test> {
-            maxParallelForks =
-                (Runtime.getRuntime().availableProcessors() / 2).takeIf { it > 0 } ?: 1
-        }
     }
 
     detekt {

@@ -5,6 +5,9 @@ import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * Created by Oleg Sheliakin on 22.01.2021.
+ */
 interface LaunchesService {
 
     @GET("launches")

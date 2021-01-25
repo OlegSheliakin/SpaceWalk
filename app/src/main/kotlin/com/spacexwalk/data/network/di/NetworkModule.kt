@@ -13,6 +13,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+/**
+ * Created by Oleg Sheliakin on 22.01.2021.
+ */
 @Module
 object NetworkModule {
 
