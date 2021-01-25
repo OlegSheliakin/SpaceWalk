@@ -1,7 +1,9 @@
 object Libs {
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
-    const val LIFECYCLE_EXTENSION = "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE_VERSION}"
-    const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
+    const val LIFECYCLE_EXTENSION =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE_VERSION}"
+    const val CONSTRAINT_LAYOUT =
+        "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
     const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val RX_KOTLIN = "io.reactivex.rxjava3:rxkotlin:${Versions.RX_KOTLIN}"
@@ -12,15 +14,20 @@ object Libs {
     const val ROOM_RX = "androidx.room:room-rxjava2:${Versions.ROOM}"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
     const val RETROFIT_RX_ADAPTER = "com.squareup.retrofit2:adapter-rxjava2:${Versions.RETROFIT}"
-    const val RETROFIT_MOSHI_CONVERTER = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
-    const val OK_HTTP_LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${Versions.OK_HTTP_LOGGING_INTERCEPTOR}"
+    const val RETROFIT_MOSHI_CONVERTER =
+        "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
+    const val OK_HTTP_LOGGING_INTERCEPTOR =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.OK_HTTP_LOGGING_INTERCEPTOR}"
     const val DAGGER_RUNTIME = "com.google.dagger:dagger:${Versions.DAGGER}"
     const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
-    const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
+    const val NAVIGATION_FRAGMENT =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}"
     const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}"
     const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
-    const val THREE_TEN_ABP = "com.jakewharton.threetenabp:threetenabp:${Versions.THREE_TEN_ABP}"
-    const val SWIPE_TO_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_TO_REFRESH}"
+    const val CORE_DESUGARING_LIBRARY =
+        "com.android.tools:desugar_jdk_libs:${Versions.CORE_DESUGARING_LIBRARY}"
+    const val SWIPE_TO_REFRESH =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_TO_REFRESH}"
 
     object Testing {
         const val JUNIT = "junit:junit:${Versions.JUNIT}"
@@ -45,7 +52,7 @@ object Libs {
         const val LIFECYCLE_VERSION = "2.1.0"
         const val NAVIGATION = "2.1.0"
         const val TIMBER = "4.7.1"
-        const val THREE_TEN_ABP = "1.2.2"
+        const val CORE_DESUGARING_LIBRARY = "1.0.9"
         const val SWIPE_TO_REFRESH = "1.0.0"
     }
 }

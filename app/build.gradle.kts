@@ -24,10 +24,7 @@ android {
             annotationProcessorOptions {
                 arguments(
                     mapOf(
-                        "dagger.gradle.incremental" to "true",
-                        "room.schemaLocation" to "$projectDir/schemas",
-                        "room.incremental" to "true",
-                        "room.expandProjection" to "true"
+                        "room.incremental" to "true"
                     )
                 )
             }
@@ -76,7 +73,7 @@ dependencies {
     implementation(Libs.RETROFIT_MOSHI_CONVERTER)
     implementation(Libs.RETROFIT_RX_ADAPTER)
 
-    implementation(Libs.THREE_TEN_ABP)
+    implementation(Libs.CORE_DESUGARING_LIBRARY)
 
     //logging
     implementation(Libs.OK_HTTP_LOGGING_INTERCEPTOR)

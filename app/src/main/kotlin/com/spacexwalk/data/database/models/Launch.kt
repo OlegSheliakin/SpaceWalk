@@ -5,6 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.spacexwalk.domain.entities.Links
+import java.time.LocalDateTime
 import java.util.*
 
 /**
@@ -28,5 +29,5 @@ data class Launch(
     @ColumnInfo(name = "upcoming")
     val isUpcoming: Boolean?,
     @ColumnInfo(name = "static_fire_date_utc")
-    val staticFireDateUtc: Date?
+    val staticFireDateUtc: LocalDateTime?
 )

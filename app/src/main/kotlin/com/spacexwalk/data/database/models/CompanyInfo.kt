@@ -11,7 +11,9 @@ import androidx.room.PrimaryKey
 data class CompanyInfo(
     @PrimaryKey
     val name: String,
+    @ColumnInfo(name = "founder_name")
     val founderName: String,
+    @ColumnInfo(name = "founded_year")
     val foundedYear: Int,
     val employees: Int,
     val vehicles: Int,
