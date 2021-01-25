@@ -2,6 +2,7 @@ package com.spacexwalk.data.network.di
 
 import com.spacexwalk.data.network.services.CompanyInfoService
 import com.spacexwalk.data.network.services.LaunchesService
+import com.spacexwalk.data.network.services.RocketService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -22,5 +23,10 @@ object ServiceModule {
     @Singleton
     @Provides
     fun provideInfoService(retrofit: Retrofit): CompanyInfoService =
+        retrofit.create()
+
+    @Singleton
+    @Provides
+    fun provideRocketService(retrofit: Retrofit): RocketService =
         retrofit.create()
 }
