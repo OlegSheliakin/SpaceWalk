@@ -17,7 +17,7 @@ object Libs {
     const val RETROFIT_MOSHI_CONVERTER =
         "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
     const val OK_HTTP_LOGGING_INTERCEPTOR =
-        "com.squareup.okhttp3:logging-interceptor:${Versions.OK_HTTP_LOGGING_INTERCEPTOR}"
+        "com.squareup.okhttp3:logging-interceptor:${Versions.OK_HTTP}"
     const val DAGGER_RUNTIME = "com.google.dagger:dagger:${Versions.DAGGER}"
     const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
     const val NAVIGATION_FRAGMENT =
@@ -31,6 +31,7 @@ object Libs {
 
     object Testing {
         const val JUNIT = "junit:junit:${Versions.JUNIT}"
+        const val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.OK_HTTP}"
         const val ANDROID_X_CORE_TESTING = "androidx.test.ext:junit:${Versions.ANDROID_X_TEST}"
         const val ANDROID_X_TEST_RULES = "androidx.test:rules:${Versions.ANDROID_X_TEST}"
     }
@@ -43,7 +44,7 @@ object Libs {
         const val JUNIT = "4.12"
         const val ANDROID_X_TEST = "1.1.2"
         const val RETROFIT = "2.9.0"
-        const val OK_HTTP_LOGGING_INTERCEPTOR = "4.9.0"
+        const val OK_HTTP = "4.9.0"
         const val ROOM = "2.2.3"
         const val DAGGER = "2.31"
         const val RX_KOTLIN = "3.0.1"

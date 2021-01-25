@@ -70,7 +70,7 @@ dependencies {
     implementation(Libs.RX_KOTLIN)
     implementation(Libs.RX_ANDROID)
 
-    //retrofitx
+    //retrofit
     implementation(Libs.RETROFIT)
     implementation(Libs.RETROFIT_MOSHI_CONVERTER)
     implementation(Libs.RETROFIT_RX_ADAPTER)
@@ -91,5 +91,6 @@ dependencies {
     kapt(Libs.ROOM_COMPILER)
 
     //testing
-    implementation(Libs.Testing.JUNIT)
+    testImplementation(Libs.Testing.JUNIT)
+    testImplementation(Libs.Testing.MOCK_WEB_SERVER)
 }
