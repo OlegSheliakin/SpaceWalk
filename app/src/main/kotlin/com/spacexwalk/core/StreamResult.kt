@@ -8,14 +8,11 @@ package com.spacexwalk.core
 sealed class StreamResult<out T> {
 
     data class Success<out T>(
-        val data: T,
+        val data: T?,
         val source: Source
     ) : StreamResult<T>()
 
-    data class Error<out T, out E>(
-        val data: T?,
-        val error: E?
-    ) : StreamResult<T>()
+    data class Error<out E>(val error: E?) : StreamResult<Nothing>()
 
     object Loading : StreamResult<Nothing>()
 
@@ -27,13 +24,12 @@ sealed class StreamResult<out T> {
      */
     fun isTerminated(): Boolean = when (this) {
         is Success -> source == Source.REMOTE
-        is Error<*, *> -> true
+        is Error<*> -> true
         else -> false
     }
 
     fun data(): T? = when (this) {
         is Success -> this.data
-        is Error<T, *> -> this.data
         else -> null
     }
 

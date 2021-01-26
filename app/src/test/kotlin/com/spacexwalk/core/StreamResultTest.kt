@@ -52,11 +52,11 @@ internal class StreamResultTest {
     }
 
     @Test
-    @DisplayName("Should return data when result is Error and data is not null")
+    @DisplayName("Should not return data when result is Error")
     fun dataError() {
-        val streamResult = StreamResult.Error(data = Unit, error = null)
+        val streamResult = StreamResult.Error(error = null)
 
-        assertNotNull(streamResult.data())
+        assertNull(streamResult.data())
     }
 
     @Test
