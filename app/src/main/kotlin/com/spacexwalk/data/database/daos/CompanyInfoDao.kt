@@ -2,8 +2,7 @@ package com.spacexwalk.data.database.daos
 
 import androidx.room.*
 import com.spacexwalk.data.database.models.CompanyInfo
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
+import io.reactivex.Observable
 
 /**
  * Created by olegsheliakin on 26.01.2021.
@@ -14,9 +13,15 @@ interface CompanyInfoDao {
     @Query("SELECT * FROM company_info LIMIT 1")
     fun stream(): Observable<CompanyInfo>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun save(info: CompanyInfo): Completable
+    @Query("DELETE FROM company_info")
+    fun clear()
 
-    @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(info: CompanyInfo): Completable
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(info: CompanyInfo)
+
+    @Transaction
+    fun replace(info: CompanyInfo) {
+        clear()
+        insert(info)
+    }
 }

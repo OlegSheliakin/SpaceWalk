@@ -19,7 +19,7 @@ android {
         versionCode = AndroidConfig.VERSION_CODE
         versionName = AndroidConfig.VERSION_NAME
         testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
-
+        testInstrumentationRunnerArgument(AndroidConfig.RUNNER_BUILDER, AndroidConfig.JUNIT_5_BUILDER)
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments(
@@ -59,6 +59,11 @@ android {
     lintOptions {
         isAbortOnError = false
     }
+
+    packagingOptions {
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/LICENSE-notice.md")
+    }
 }
 
 dependencies {
@@ -80,7 +85,7 @@ dependencies {
     implementation(Libs.Moshi.RETROFIT_MOSHI_CONVERTER)
     kapt(Libs.Moshi.KAPT)
 
-    implementation(Libs.CORE_DESUGARING_LIBRARY)
+    coreLibraryDesugaring(Libs.CORE_DESUGARING_LIBRARY)
 
     //logging
     implementation(Libs.OK_HTTP_LOGGING_INTERCEPTOR)
@@ -99,4 +104,10 @@ dependencies {
     testRuntimeOnly(Libs.Testing.JUNIT_ENGINE)
     testImplementation(Libs.Testing.JUNIT_API)
     testImplementation(Libs.Testing.MOCK_WEB_SERVER)
+
+    //android testing
+    androidTestImplementation(Libs.Testing.JUNIT_API)
+    androidTestImplementation(Libs.Testing.ANDROID_TEST_RUNNER)
+    androidTestImplementation(Libs.Testing.ANDROID_JUNIT_5_CORE)
+    androidTestRuntimeOnly(Libs.Testing.ANDROID_JUNIT_5_RUNNER)
 }

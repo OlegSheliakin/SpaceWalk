@@ -9,7 +9,7 @@ import com.spacexwalk.utils.createResponse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
-import java.time.LocalDateTime
+import java.time.ZonedDateTime
 
 /**
  * Created by olegsheliakin on 25.01.2021.
@@ -39,7 +39,7 @@ class LaunchesTest {
             Launch(
                 flightNumber = 1,
                 missionName = "FalconSat",
-                launchDate = LocalDateTime.parse("2006-03-25T01:30"),
+                launchDate = ZonedDateTime.parse("2006-03-25T01:30.000Z"),
                 datePrecision = "hour",
                 rocketId = "5e9d0d95eda69955f709d1eb",
                 launchSuccess = false,
@@ -56,12 +56,12 @@ class LaunchesTest {
                     article = "https://www.space.com/2196-spacex-inaugural-falcon-1-rocket-lost-launch.html",
                     wikipedia = "https://en.wikipedia.org/wiki/DemoSat"
                 ),
-                staticFireDate = LocalDateTime.parse("2006-03-17T03:00")
+                staticFireDate = ZonedDateTime.parse("2006-03-17T03:00.000Z")
             ),
             Launch(
                 flightNumber = 2,
                 missionName = "DemoSat",
-                launchDate = LocalDateTime.parse("2007-03-21T04:10:00"),
+                launchDate = ZonedDateTime.parse("2007-03-21T04:10:00.000Z"),
                 datePrecision = "hour",
                 rocketId = "5e9d0d95eda69955f709d1eb",
                 launchSuccess = false,

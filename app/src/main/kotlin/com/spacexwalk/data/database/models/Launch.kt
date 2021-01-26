@@ -5,8 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.spacexwalk.domain.entities.Links
-import java.time.LocalDateTime
-import java.util.*
+import java.time.ZonedDateTime
 
 /**
  * Created by Oleg Sheliakin on 22.01.2021.
@@ -17,7 +16,7 @@ data class Launch(
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "date_utc")
-    val dateUtc: Date,
+    val dateUtc: ZonedDateTime,
     @ColumnInfo(name = "rocket_id")
     val rocketId: String,
     @ColumnInfo(name = "success")
@@ -29,5 +28,5 @@ data class Launch(
     @ColumnInfo(name = "upcoming")
     val isUpcoming: Boolean?,
     @ColumnInfo(name = "static_fire_date_utc")
-    val staticFireDateUtc: LocalDateTime?
+    val staticFireDateUtc: ZonedDateTime?
 )

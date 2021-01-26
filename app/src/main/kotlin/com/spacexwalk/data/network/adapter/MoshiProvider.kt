@@ -8,7 +8,7 @@ import com.squareup.moshi.Moshi
 object MoshiProvider {
     val moshi: Moshi by lazy {
         Moshi.Builder()
-            .add(LocalTimeAdapter)
+            .add(ZonedTimeAdapter)
             .build()
     }
 }

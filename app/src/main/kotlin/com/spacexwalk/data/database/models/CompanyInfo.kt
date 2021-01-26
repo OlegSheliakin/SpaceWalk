@@ -16,7 +16,6 @@ data class CompanyInfo(
     @ColumnInfo(name = "founded_year")
     val foundedYear: Int,
     val employees: Int,
-    val vehicles: Int,
     @ColumnInfo(name = "launch_sites")
     val launchSites: Int,
     val valuation: Long

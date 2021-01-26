@@ -9,4 +9,6 @@ object AndroidConfig {
     const val ID = "com.spacexwalk"
 
     const val TEST_INSTRUMENTATION_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+    const val JUNIT_5_BUILDER = "de.mannodermaus.junit5.AndroidJUnit5Builder"
+    const val RUNNER_BUILDER = "runnerBuilder"
 }

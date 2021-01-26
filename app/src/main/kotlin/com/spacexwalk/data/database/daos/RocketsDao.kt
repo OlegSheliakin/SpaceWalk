@@ -2,9 +2,9 @@ package com.spacexwalk.data.database.daos
 
 import androidx.room.*
 import com.spacexwalk.data.database.models.Rocket
-import io.reactivex.rxjava3.core.Completable
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Completable
+import io.reactivex.Observable
+import io.reactivex.Single
 
 /**
  * Created by olegsheliakin on 26.01.2021.
