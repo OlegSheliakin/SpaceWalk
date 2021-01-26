@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 /**
  * Created by olegsheliakin on 25.01.2021.
@@ -24,7 +23,7 @@ class LaunchesTest {
     @Test
     fun test() {
         mockWebServerExtension.server.enqueue(createResponse("/launches.json"))
-        DateTimeFormatter.ISO_DATE
+
         val actual = launchesService.getAllLaunches().blockingGet()
 
         Assertions.assertEquals(expected, actual)

@@ -6,11 +6,12 @@ buildscript {
     }
     dependencies {
         classpath(Plugins.ANDROID_GRADLE)
+        classpath(Plugins.ANDROID_JUNIT_5)
     }
 }
 
 plugins {
-    id(Plugins.Id.DETEKT).version(Plugins.Versions.DETEKT)
+    id(Plugins.Id.DETEKT) version Plugins.Versions.DETEKT
     kotlin(Plugins.Id.KOTLIN_ANDROID) version Kotlin.KOTLIN_VERSION apply false
 }
 
