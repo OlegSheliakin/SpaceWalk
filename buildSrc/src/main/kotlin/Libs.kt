@@ -14,8 +14,7 @@ object Libs {
     const val ROOM_RX = "androidx.room:room-rxjava2:${Versions.ROOM}"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
     const val RETROFIT_RX_ADAPTER = "com.squareup.retrofit2:adapter-rxjava2:${Versions.RETROFIT}"
-    const val RETROFIT_MOSHI_CONVERTER =
-        "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
+
     const val OK_HTTP_LOGGING_INTERCEPTOR =
         "com.squareup.okhttp3:logging-interceptor:${Versions.OK_HTTP}"
     const val DAGGER_RUNTIME = "com.google.dagger:dagger:${Versions.DAGGER}"
@@ -29,8 +28,16 @@ object Libs {
     const val SWIPE_TO_REFRESH =
         "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.SWIPE_TO_REFRESH}"
 
+    object Moshi {
+        const val RUNTIME = "com.squareup.moshi:moshi:${Versions.MOSHI}"
+        const val RETROFIT_MOSHI_CONVERTER =
+            "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
+        const val KAPT = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.MOSHI}"
+    }
+
     object Testing {
-        const val JUNIT = "junit:junit:${Versions.JUNIT}"
+        const val JUNIT_API = "org.junit.jupiter:junit-jupiter-api:${Versions.JUNIT}"
+        const val JUNIT_ENGINE = "org.junit.jupiter:junit-jupiter-engine:${Versions.JUNIT}"
         const val MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${Versions.OK_HTTP}"
         const val ANDROID_X_CORE_TESTING = "androidx.test.ext:junit:${Versions.ANDROID_X_TEST}"
         const val ANDROID_X_TEST_RULES = "androidx.test:rules:${Versions.ANDROID_X_TEST}"
@@ -41,7 +48,7 @@ object Libs {
         const val CONSTRAINT_LAYOUT = "1.1.3"
         const val CORE_KTX = "1.3.2"
         const val MATERIAL = "1.2.1"
-        const val JUNIT = "4.12"
+        const val JUNIT = "5.7.0"
         const val ANDROID_X_TEST = "1.1.2"
         const val RETROFIT = "2.9.0"
         const val OK_HTTP = "4.9.0"
@@ -55,5 +62,6 @@ object Libs {
         const val TIMBER = "4.7.1"
         const val CORE_DESUGARING_LIBRARY = "1.0.9"
         const val SWIPE_TO_REFRESH = "1.0.0"
+        const val MOSHI = "1.11.0"
     }
 }

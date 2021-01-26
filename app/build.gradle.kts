@@ -42,6 +42,7 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -72,8 +73,12 @@ dependencies {
 
     //retrofit
     implementation(Libs.RETROFIT)
-    implementation(Libs.RETROFIT_MOSHI_CONVERTER)
     implementation(Libs.RETROFIT_RX_ADAPTER)
+
+    //moshi
+    implementation(Libs.Moshi.RUNTIME)
+    implementation(Libs.Moshi.RETROFIT_MOSHI_CONVERTER)
+    kapt(Libs.Moshi.KAPT)
 
     implementation(Libs.CORE_DESUGARING_LIBRARY)
 
@@ -91,6 +96,7 @@ dependencies {
     kapt(Libs.ROOM_COMPILER)
 
     //testing
-    testImplementation(Libs.Testing.JUNIT)
+    testRuntimeOnly(Libs.Testing.JUNIT_ENGINE)
+    testImplementation(Libs.Testing.JUNIT_API)
     testImplementation(Libs.Testing.MOCK_WEB_SERVER)
 }
