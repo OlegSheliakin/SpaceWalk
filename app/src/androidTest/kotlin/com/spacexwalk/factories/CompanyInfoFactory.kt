@@ -1,11 +1,13 @@
-package com.spacexwalk
+package com.spacexwalk.factories
 
 import com.spacexwalk.data.database.models.CompanyInfo
 
 /**
+ * Factory for [CompanyInfo]
+ *
  * Created by olegsheliakin on 26.01.2021.
  */
-object EntityFactory {
+object CompanyInfoFactory {
 
     fun companyInfo() = CompanyInfo(
         name = "SpaceX",

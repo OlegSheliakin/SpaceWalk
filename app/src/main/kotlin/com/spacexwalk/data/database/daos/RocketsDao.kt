@@ -2,7 +2,6 @@ package com.spacexwalk.data.database.daos
 
 import androidx.room.*
 import com.spacexwalk.data.database.models.Rocket
-import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 
@@ -19,17 +18,17 @@ interface RocketsDao {
     fun getById(id: String): Single<Rocket>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(rocket: Rocket): Completable
+    fun insert(rocket: Rocket)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(rockets: List<Rocket>): Completable
+    fun insert(rockets: List<Rocket>)
 
     @Query("DELETE FROM rocket")
-    fun clearTable()
+    fun clear()
 
     @Transaction
     fun replaceAll(entities: List<Rocket>) {
-        clearTable()
+        clear()
         insert(entities)
     }
 }

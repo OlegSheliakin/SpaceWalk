@@ -3,6 +3,7 @@ package com.spacexwalk
 import com.spacexwalk.data.database.daos.CompanyInfoDao
 import com.spacexwalk.extensions.DbExtension
 import com.spacexwalk.extensions.InstantExecutorExtension
+import com.spacexwalk.factories.CompanyInfoFactory
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -20,7 +21,7 @@ class CompanyInfoDaoTest {
 
     @Test
     fun replaceTest() {
-        val expected = EntityFactory.companyInfo()
+        val expected = CompanyInfoFactory.companyInfo()
 
         companyInfoDao.replace(expected)
 
@@ -31,7 +32,7 @@ class CompanyInfoDaoTest {
 
     @Test
     fun clearTest() {
-        val expected = EntityFactory.companyInfo()
+        val expected = CompanyInfoFactory.companyInfo()
 
         companyInfoDao.insert(expected)
         companyInfoDao.clear()
@@ -41,7 +42,7 @@ class CompanyInfoDaoTest {
 
     @Test
     fun streamTest() {
-        val expected = EntityFactory.companyInfo()
+        val expected = CompanyInfoFactory.companyInfo()
         val nextExpected = expected.copy(founderName = "Oleg Sheliakin")
 
         val testObserver = companyInfoDao.stream().test()
@@ -53,7 +54,7 @@ class CompanyInfoDaoTest {
 
     @Test
     fun insertTest() {
-        val expected = EntityFactory.companyInfo()
+        val expected = CompanyInfoFactory.companyInfo()
         val nextExpected = expected.copy(founderName = "Oleg Sheliakin")
 
         companyInfoDao.insert(expected)
