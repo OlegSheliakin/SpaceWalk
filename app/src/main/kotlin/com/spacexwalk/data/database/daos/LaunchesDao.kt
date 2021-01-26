@@ -2,7 +2,6 @@ package com.spacexwalk.data.database.daos
 
 import androidx.room.*
 import com.spacexwalk.data.database.models.Launch
-import io.reactivex.Completable
 import io.reactivex.Observable
 
 /**
@@ -15,17 +14,17 @@ interface LaunchesDao {
     fun stream(): Observable<List<Launch>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(launch: Launch): Completable
+    fun insert(launch: Launch)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(launches: List<Launch>)
 
     @Query("DELETE FROM launch")
-    fun clearTable()
+    fun clear()
 
     @Transaction
     fun replaceAll(entities: List<Launch>) {
-        clearTable()
+        clear()
         insert(entities)
     }
 }
