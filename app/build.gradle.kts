@@ -64,6 +64,8 @@ android {
         exclude("META-INF/LICENSE.md")
         exclude("META-INF/LICENSE-notice.md")
     }
+
+    buildFeatures.viewBinding = true
 }
 
 dependencies {
@@ -71,6 +73,8 @@ dependencies {
     implementation(Kotlin.STD_LIB)
 
     implementation(Libs.MATERIAL)
+    implementation(Libs.SWIPE_TO_REFRESH)
+    implementation(Libs.CONSTRAINT_LAYOUT)
 
     //rx
     implementation(Libs.RX_KOTLIN)

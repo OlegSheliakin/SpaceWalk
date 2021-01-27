@@ -6,6 +6,7 @@ import com.spacexwalk.data.mappers.toDomainModels
 import com.spacexwalk.data.network.services.LaunchesService
 import com.spacexwalk.domain.entities.Launch
 import com.spacexwalk.domain.repositories.LaunchesRepository
+import io.reactivex.Completable
 import io.reactivex.Flowable
 import javax.inject.Inject
 
@@ -17,20 +18,16 @@ class LaunchesRepositoryImpl @Inject constructor(
     private val launchesService: LaunchesService
 ) : LaunchesRepository {
 
-    override fun stream(fresh: Boolean): Flowable<List<Launch>> =
-        if (fresh) {
-            getFreshStream()
-        } else {
-            Flowable
-                .concat(
-                    launchesDao.getAll().onErrorComplete().toFlowable(),
-                    getFreshStream()
-                )
-        }.map { it.toDomainModels() }
+    override fun stream(): Flowable<List<Launch>> =
+        launchesDao.getAll()
+            .onErrorComplete()
+            .toFlowable()
+            .concatWith(launchesDao.stream().skip(1))
+            .map { it.toDomainModels() }
 
-    private fun getFreshStream() = launchesService.getAllLaunches()
-        .map { it.toDbModels() }
-        .doOnSuccess(launchesDao::replaceAll)
-        .toFlowable()
-        .concatWith(launchesDao.stream().skip(1))
+    override fun refresh(): Completable =
+        launchesService.getAllLaunches()
+            .map { it.toDbModels() }
+            .doOnSuccess(launchesDao::replaceAll)
+            .ignoreElement()
 }

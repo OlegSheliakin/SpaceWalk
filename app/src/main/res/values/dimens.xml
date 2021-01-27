@@ -2,4 +2,9 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="rounded_corner_radius">8dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="launch_success_icon_size">48dp</dimen>
 </resources>

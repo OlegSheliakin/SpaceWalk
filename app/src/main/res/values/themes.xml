@@ -22,4 +22,10 @@
     <style name="Theme.SpaceXWalk.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.SpaceXWalk.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/rounded_corner_radius</item>
+    </style>
+
 </resources>
