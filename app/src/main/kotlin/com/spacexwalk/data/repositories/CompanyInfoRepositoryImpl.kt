@@ -6,6 +6,7 @@ import com.spacexwalk.data.mappers.toDomainModel
 import com.spacexwalk.data.network.services.CompanyInfoService
 import com.spacexwalk.domain.entities.CompanyInfo
 import com.spacexwalk.domain.repositories.CompanyInfoRepository
+import io.reactivex.Completable
 import io.reactivex.Flowable
 import javax.inject.Inject
 
@@ -18,13 +19,15 @@ class CompanyInfoRepositoryImpl @Inject constructor(
 ) : CompanyInfoRepository {
 
     override fun stream(): Flowable<CompanyInfo> =
-        Flowable
-            .concat(
-                companyInfoDao.get().onErrorComplete().toFlowable(),
-                companyInfoService.getInfo()
-                    .map { it.toDbModel() }
-                    .doOnSuccess(companyInfoDao::replace)
-                    .toFlowable()
-                    .concatWith(companyInfoDao.stream().skip(1))
-            ).map { it.toDomainModel() }
+        companyInfoDao.get()
+            .onErrorComplete()
+            .toFlowable()
+            .concatWith(companyInfoDao.stream().skip(1))
+            .map { it.toDomainModel() }
+
+    override fun refresh(): Completable =
+        companyInfoService.getInfo()
+            .map { it.toDbModel() }
+            .doOnSuccess(companyInfoDao::replace)
+            .ignoreElement()
 }

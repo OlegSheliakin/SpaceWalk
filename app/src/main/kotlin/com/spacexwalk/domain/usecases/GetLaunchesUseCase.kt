@@ -13,5 +13,5 @@ class GetLaunchesUseCase @Inject constructor(
 ) {
 
     fun execute(): Flowable<List<Launch>> =
-        launchesRepository.stream()
+        launchesRepository.stream(true)
 }

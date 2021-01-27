@@ -1,6 +1,7 @@
 package com.spacexwalk.domain.repositories
 
 import com.spacexwalk.domain.entities.Launch
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 /**
@@ -8,4 +9,5 @@ import io.reactivex.Flowable
  */
 interface LaunchesRepository {
     fun stream(): Flowable<List<Launch>>
+    fun refresh(): Completable
 }

@@ -1,4 +1,4 @@
-package com.spacexwalk
+package com.spacexwalk.presentation.main
 
 import android.os.Bundle
 import android.view.Menu
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.spacexwalk.R
 
 class MainActivity : AppCompatActivity(R.layout.activity_scrolling) {
 

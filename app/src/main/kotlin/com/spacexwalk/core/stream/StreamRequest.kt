@@ -1,4 +1,4 @@
-package com.spacexwalk.core
+package com.spacexwalk.core.stream
 
 /**
  * Created by olegsheliakin on 26.01.2021.

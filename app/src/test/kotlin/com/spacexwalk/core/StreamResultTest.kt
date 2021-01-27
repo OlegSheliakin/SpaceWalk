@@ -1,5 +1,6 @@
 package com.spacexwalk.core
 
+import com.spacexwalk.core.stream.StreamResult
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

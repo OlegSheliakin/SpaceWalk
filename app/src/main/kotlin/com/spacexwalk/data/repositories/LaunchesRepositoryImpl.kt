@@ -17,14 +17,20 @@ class LaunchesRepositoryImpl @Inject constructor(
     private val launchesService: LaunchesService
 ) : LaunchesRepository {
 
-    override fun stream(): Flowable<List<Launch>> =
-        Flowable
-            .concat(
-                launchesDao.getAll().onErrorComplete().toFlowable(),
-                launchesService.getAllLaunches()
-                    .map { it.toDbModels() }
-                    .doOnSuccess(launchesDao::replaceAll)
-                    .toFlowable()
-                    .concatWith(launchesDao.stream().skip(1))
-            ).map { it.toDomainModels() }
+    override fun stream(fresh: Boolean): Flowable<List<Launch>> =
+        if (fresh) {
+            getFreshStream()
+        } else {
+            Flowable
+                .concat(
+                    launchesDao.getAll().onErrorComplete().toFlowable(),
+                    getFreshStream()
+                )
+        }.map { it.toDomainModels() }
+
+    private fun getFreshStream() = launchesService.getAllLaunches()
+        .map { it.toDbModels() }
+        .doOnSuccess(launchesDao::replaceAll)
+        .toFlowable()
+        .concatWith(launchesDao.stream().skip(1))
 }

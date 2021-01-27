@@ -1,4 +1,4 @@
-package com.spacexwalk.core
+package com.spacexwalk.core.stream
 
 import io.reactivex.Flowable
 

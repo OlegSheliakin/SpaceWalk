@@ -1,6 +1,7 @@
 package com.spacexwalk.domain.repositories
 
 import com.spacexwalk.domain.entities.CompanyInfo
+import io.reactivex.Completable
 import io.reactivex.Flowable
 
 /**
@@ -8,4 +9,5 @@ import io.reactivex.Flowable
  */
 interface CompanyInfoRepository {
     fun stream(): Flowable<CompanyInfo>
+    fun refresh(): Completable
 }

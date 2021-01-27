@@ -75,6 +75,7 @@ dependencies {
     //rx
     implementation(Libs.RX_KOTLIN)
     implementation(Libs.RX_ANDROID)
+    implementation(Libs.RX_RELAY)
 
     //retrofit
     implementation(Libs.RETROFIT)

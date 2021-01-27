@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.SpaceXWalk">
         <activity
-                android:name="com.spacexwalk.MainActivity"
+                android:name="com.spacexwalk.presentation.main.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/Theme.SpaceXWalk.NoActionBar">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.spacexwalk.core
+package com.spacexwalk.core.stream
 
 /**
  * This class represents the stream data results.

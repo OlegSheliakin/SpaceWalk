@@ -1,7 +1,7 @@
 package com.spacexwalk.data.repositories
 
-import com.spacexwalk.core.StreamRequest
-import com.spacexwalk.core.StreamResult.*
+import com.spacexwalk.core.stream.StreamRequest
+import com.spacexwalk.core.stream.StreamResult.*
 import com.spacexwalk.data.stream.streamBuilder
 import io.reactivex.Flowable
 import io.reactivex.Maybe

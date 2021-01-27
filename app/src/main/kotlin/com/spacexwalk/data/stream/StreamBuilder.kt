@@ -1,9 +1,9 @@
 package com.spacexwalk.data.stream
 
-import com.spacexwalk.core.StreamProvider
-import com.spacexwalk.core.StreamRequest
-import com.spacexwalk.core.StreamResult
-import com.spacexwalk.core.StreamResult.*
+import com.spacexwalk.core.stream.StreamProvider
+import com.spacexwalk.core.stream.StreamRequest
+import com.spacexwalk.core.stream.StreamResult
+import com.spacexwalk.core.stream.StreamResult.*
 import io.reactivex.Flowable
 import io.reactivex.Maybe
 import io.reactivex.Single
