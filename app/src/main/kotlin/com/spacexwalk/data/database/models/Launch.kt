@@ -14,13 +14,13 @@ import java.time.ZonedDateTime
 data class Launch(
     @PrimaryKey
     @ColumnInfo(name = "name")
-    val name: String,
+    val missionName: String,
     @ColumnInfo(name = "date_utc")
-    val dateUtc: ZonedDateTime,
+    val launchDateUtc: ZonedDateTime,
     @ColumnInfo(name = "rocket_id")
     val rocketId: String,
     @ColumnInfo(name = "success")
-    val success: Boolean?,
+    val launchSuccess: Boolean?,
     @Embedded
     val links: Links?,
     @ColumnInfo(name = "details")

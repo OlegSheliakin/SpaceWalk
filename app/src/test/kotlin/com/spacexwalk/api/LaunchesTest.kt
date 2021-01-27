@@ -39,7 +39,7 @@ class LaunchesTest {
             Launch(
                 flightNumber = 1,
                 missionName = "FalconSat",
-                launchDate = ZonedDateTime.parse("2006-03-25T01:30.000Z"),
+                launchDate = ZonedDateTime.parse("2006-03-24T22:30:00.000Z"),
                 datePrecision = "hour",
                 rocketId = "5e9d0d95eda69955f709d1eb",
                 launchSuccess = false,
@@ -56,12 +56,12 @@ class LaunchesTest {
                     article = "https://www.space.com/2196-spacex-inaugural-falcon-1-rocket-lost-launch.html",
                     wikipedia = "https://en.wikipedia.org/wiki/DemoSat"
                 ),
-                staticFireDate = ZonedDateTime.parse("2006-03-17T03:00.000Z")
+                staticFireDate = ZonedDateTime.parse("2006-03-17T00:00:00.000Z")
             ),
             Launch(
                 flightNumber = 2,
                 missionName = "DemoSat",
-                launchDate = ZonedDateTime.parse("2007-03-21T04:10:00.000Z"),
+                launchDate = ZonedDateTime.parse("2007-03-21T01:10:00.000Z"),
                 datePrecision = "hour",
                 rocketId = "5e9d0d95eda69955f709d1eb",
                 launchSuccess = false,

@@ -6,10 +6,10 @@ import java.time.ZonedDateTime
  * Created by olegsheliakin on 26.01.2021.
  */
 data class Launch(
-    val name: String,
-    val dateUtc: ZonedDateTime,
+    val missionName: String,
+    val launchDateUtc: ZonedDateTime,
     val rocketId: String,
-    val success: Boolean?,
+    val launchSuccess: Boolean?,
     val links: Links?,
     val details: String?,
     val isUpcoming: Boolean?,

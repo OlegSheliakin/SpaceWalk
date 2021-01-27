@@ -2,7 +2,8 @@ package com.spacexwalk.data.database.daos
 
 import androidx.room.*
 import com.spacexwalk.data.database.models.CompanyInfo
-import io.reactivex.Observable
+import io.reactivex.Flowable
+import io.reactivex.Maybe
 
 /**
  * Created by olegsheliakin on 26.01.2021.
@@ -11,7 +12,10 @@ import io.reactivex.Observable
 interface CompanyInfoDao {
 
     @Query("SELECT * FROM company_info LIMIT 1")
-    fun stream(): Observable<CompanyInfo>
+    fun stream(): Flowable<CompanyInfo>
+
+    @Query("SELECT * FROM company_info LIMIT 1")
+    fun get(): Maybe<CompanyInfo>
 
     @Query("DELETE FROM company_info")
     fun clear()

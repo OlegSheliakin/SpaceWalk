@@ -62,7 +62,6 @@ private fun <PARAMS : Any, DATA : Any> createFreshStream(
 ): Flowable<StreamResult<DATA>> {
     val fetchStream = fetcher.invoke(params)
         .doOnSuccess(persister)
-        .toFlowable()
         .toStreamResult(Source.REMOTE)
 
     return fetchStream.concatWith(listenStream(params, streamer))
@@ -73,7 +72,3 @@ private fun <PARAMS : Any, DATA : Any> listenStream(
     streamer: (PARAMS) -> Flowable<DATA>
 ): Flowable<StreamResult<DATA>> =
     streamer.invoke(params).toStreamResult(Source.CACHE).skip(1)
-
-private fun <T : Any> Flowable<T>.toStreamResult(source: Source): Flowable<StreamResult<T>> =
-    map<StreamResult<T>> { Success(it, source) }
-        .onErrorReturn { Error(it) }

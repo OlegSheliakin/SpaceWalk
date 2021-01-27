@@ -1,7 +1,9 @@
 package com.spacexwalk.data.repositories
 
-import com.spacexwalk.core.StreamRequest
-import com.spacexwalk.core.StreamResult
+import com.spacexwalk.data.database.daos.LaunchesDao
+import com.spacexwalk.data.mappers.toDbModels
+import com.spacexwalk.data.mappers.toDomainModels
+import com.spacexwalk.data.network.services.LaunchesService
 import com.spacexwalk.domain.entities.Launch
 import com.spacexwalk.domain.repositories.LaunchesRepository
 import io.reactivex.Flowable
@@ -10,8 +12,19 @@ import javax.inject.Inject
 /**
  * Created by Oleg Sheliakin on 26.01.2021.
  */
-class LaunchesRepositoryImpl @Inject constructor() : LaunchesRepository {
+class LaunchesRepositoryImpl @Inject constructor(
+    private val launchesDao: LaunchesDao,
+    private val launchesService: LaunchesService
+) : LaunchesRepository {
 
-    override fun stream(request: StreamRequest<Unit>): Flowable<StreamResult<List<Launch>>> =
-        Flowable.empty()
+    override fun stream(): Flowable<List<Launch>> =
+        Flowable
+            .concat(
+                launchesDao.getAll().onErrorComplete().toFlowable(),
+                launchesService.getAllLaunches()
+                    .map { it.toDbModels() }
+                    .doOnSuccess(launchesDao::replaceAll)
+                    .toFlowable()
+                    .concatWith(launchesDao.stream().skip(1))
+            ).map { it.toDomainModels() }
 }

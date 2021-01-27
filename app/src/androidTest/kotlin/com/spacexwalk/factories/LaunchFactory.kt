@@ -3,7 +3,6 @@ package com.spacexwalk.factories
 import com.spacexwalk.data.database.models.Launch
 import com.spacexwalk.data.database.models.Rocket
 import com.spacexwalk.domain.entities.Links
-import java.time.ZoneId
 import java.time.ZonedDateTime
 
 /**
@@ -15,15 +14,15 @@ object LaunchFactory {
 
     fun launch(
         name: String = "Falcon 1",
-        dateUtc: ZonedDateTime = ZonedDateTime.now(ZoneId.of("UTC")),
+        dateUtc: ZonedDateTime = ZonedDateTime.parse("2006-03-24T22:30Z[UTC]"),
         rocketId: String = "5e9d0d95eda69955f709d1eb",
         success: Boolean = true,
-        staticFireDateUtc: ZonedDateTime? = ZonedDateTime.now(ZoneId.of("UTC"))
+        staticFireDateUtc: ZonedDateTime? = ZonedDateTime.parse("2006-03-24T22:30Z[UTC]")
     ) = Launch(
-        name = name,
-        dateUtc = dateUtc,
+        missionName = name,
+        launchDateUtc = dateUtc,
         rocketId = rocketId,
-        success = success,
+        launchSuccess = success,
         links = Links(
             smallIcon = "https://images2.imgbox.com/4f/e3/I0lkuJ2e_o.png",
             largeIcon = "https://images2.imgbox.com/be/e7/iNqsqVYM_o.png",
@@ -42,9 +41,9 @@ object LaunchFactory {
         amount: Int,
         nameCreator: (Int) -> String = { it.toString() },
     ): Sequence<Launch> {
-        val localAmount = if (amount < 0) 0 else amount
+        val localAmount = if (amount < 0) 1 else amount
 
-        return (0..localAmount).asSequence().map { id ->
+        return (0 until localAmount).asSequence().map { id ->
             launch(name = nameCreator.invoke(id))
         }
     }
